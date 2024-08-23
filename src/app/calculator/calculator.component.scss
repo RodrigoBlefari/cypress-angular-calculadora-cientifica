@@ -1,0 +1,109 @@
+/* Cores */
+$background-gradient: linear-gradient(145deg, #56cfe1, #ff6f61);
+$display-background: #222;
+$button-background: #333;
+$button-hover: #444;
+$button-active: #555;
+$operator-color: #ff6f61;
+$clear-color: #ff3b30;
+$equals-color: #4caf50;
+$scientific-color: #56cfe1;
+
+/* Calculadora Geral */
+.calculator {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 360px;
+    margin: 50px auto;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+    background: $background-gradient;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+
+    .display {
+        height: 45px;
+        background-color: var($background-gradient);
+        width: 100%;
+        padding: 20px;
+        font-size: 2.5em;
+        text-align: right;
+    }
+
+    .buttons {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1px;
+        background: #333;
+
+        button {
+            padding: 20px;
+            font-size: 1.5em;
+            background: $button-background;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+
+            &:hover {
+                background: $button-hover;
+            }
+
+            &:active {
+                background: $button-active;
+                transform: scale(0.95);
+                animation: pulse 0.5s ease-in-out;
+            }
+
+            &.operator {
+                background: $operator-color;
+
+                &:hover {
+                    background: darken($operator-color, 10%);
+                }
+            }
+
+            &.clear {
+                background: $clear-color;
+
+                &:hover {
+                    background: darken($clear-color, 10%);
+                }
+            }
+
+            &.equals {
+                background: $equals-color;
+
+                &:hover {
+                    background: darken($equals-color, 10%);
+                }
+            }
+
+            &.scientific {
+                background: $scientific-color;
+
+                &:hover {
+                    background: darken($scientific-color, 10%);
+                }
+            }
+        }
+    }
+}
+
+/* Efeito de Animação */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+    50% {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    }
+    100% {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+}
